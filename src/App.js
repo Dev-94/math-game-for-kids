@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  var [score, setScore] = useState(10);
+  var [score, setScore] = useState(0);
   const [question, newQuestion] = useState('Click Any Button!');
   const [answer, newAnswer] = useState();
+  var correct;
 
   const QA = [
     {
@@ -27,11 +28,44 @@ function App() {
   var second = found[2]; // first number in question is idx2 in matched arr
   console.log(second);
   // find operator and return in array
-  var operator
+  var opRegEx = /[\+\-\*\/]/;
+  var operator = q.match(opRegEx);
   // access operator from array
-  console.log('operator: ' + operator)
+  console.log('operator: ' + operator);
 
-  // first + operator + second
+  // const ans = first.valueOf() + operator.valueOf() + second.valueOf();
+  // console.log(ans);
+
+  if (operator == '+') {
+    first = parseInt(first);
+    second = parseInt(second);
+    correct = first + second;
+    console.log("correct: " + correct);
+  }
+  else if (operator == '-') {
+    first = parseInt(first);
+    second = parseInt(second);
+    correct = first - second;
+    console.log("correct: " + correct);
+  }
+  else if (operator == '*') {
+    first = parseInt(first);
+    second = parseInt(second);
+    correct = first * second;
+    console.log("correct: " + correct);
+  }
+  else if (operator == '/') {
+    first = parseInt(first);
+    second = parseInt(second);
+    correct = first / second;
+    console.log("correct: " + correct);
+  }
+  // if (operator == -) { first.valueOf() -= second.valueOf()}
+  // if (operator == *) { first.valueOf() *= second.valueOf()}
+  // if (operator == /) { first.valueOf() /= second.valueOf()}
+
+  // push corrext answer in to correct a data structure
+  // name data structure and access it to check if submitted answer is correct
 
 
 
@@ -61,19 +95,32 @@ function App() {
     <div className="App">
 
       <div>Score: {score}</div>
-      <div>Question: {question} </div>
+      <div>Question: {q} </div>
 
-      <input type="submit" value="A" onClick={(e) => {
+      <input type="submit" value={`${QA[1].a}`} onClick={(e) => {
         e.preventDefault();
-        setScore(score * 2);
+        if (correct == QA[1].a) {
+          setScore(score + 1);
+        } else if (correct != QA[1].a) {
+          setScore(score - 1)
+        };
       }} />
-      <input type="submit" value="B" onClick={(e) => {
+      <input type="submit" value={`${QA[1].b}`} onClick={(e) => {
         e.preventDefault();
-        setScore(score--);
+        if (correct == QA[1].b) {
+          setScore(score + 10);
+        } else if (correct != QA[1].b) {
+          setScore(score - 1)
+        };
       }} />
-      <input type="submit" value="C" onClick={(e) => {
+      <input type="submit" value={`${QA[1].c}`} onClick={(e) => {
         e.preventDefault();
-        setScore(score = 14);
+        // how to acces value of input
+        if (correct == QA[1].c) {
+          setScore(score = 14);
+        } else if (correct != QA[1].c) {
+          setScore(score - 1)
+        };
       }} />
 
 
