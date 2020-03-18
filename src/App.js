@@ -60,23 +60,26 @@ function App() {
     correct = first / second;
     console.log("correct: " + correct);
   }
-  // if (operator == -) { first.valueOf() -= second.valueOf()}
-  // if (operator == *) { first.valueOf() *= second.valueOf()}
-  // if (operator == /) { first.valueOf() /= second.valueOf()}
-
-  // push corrext answer in to correct a data structure
-  // name data structure and access it to check if submitted answer is correct
 
 
+  // how to remove preset answer choices
+  // correct answer is solved
+  // take correct answer and manipulate it
+  // store manipulated in variable
+  // compare correct with variables
+  // randomize which has correct answer
+  // choose random number between 0 and 2
+  // store correct in selected idx
+  var answerA;
+  var answerB;
+  var answerC;
+  var arr = [answerA, answerB, answerC];
+  var idx = Math.floor(Math.random() * Math.floor(3));
+  console.log('idx: ' + idx);
+  arr[idx] = correct;
+  console.log('arr[idx]: ' + arr[idx]);
+  console.log('correct: ' + correct);
 
-  // compare if same as answer choice
-
-  // when answer is correct 10 points are added
-  // displayed on score board
-
-  // question appears
-  // answers appear
-  // answers appear in each button
 
   // array of objects
   // objects has keys for Q, 3 As, correct A
@@ -87,9 +90,6 @@ function App() {
   // state => score
 
 
-  // does not work
-  // var newQ = Number.parseInt('15') + parseInt('5'); //20
-  // console.log(newQ);
 
   return (
     <div className="App">
@@ -97,15 +97,15 @@ function App() {
       <div>Score: {score}</div>
       <div>Question: {q} </div>
 
-      <input type="submit" value={`${QA[1].a}`} onClick={(e) => {
+      <input type="submit" value={correct} onClick={(e) => {
         e.preventDefault();
         if (correct == QA[1].a) {
-          setScore(score + 1);
+          setScore(score + 10);
         } else if (correct != QA[1].a) {
           setScore(score - 1)
         };
       }} />
-      <input type="submit" value={`${QA[1].b}`} onClick={(e) => {
+      <input type="submit" value={correct * 1.5 - 5} onClick={(e) => {
         e.preventDefault();
         if (correct == QA[1].b) {
           setScore(score + 10);
@@ -113,11 +113,11 @@ function App() {
           setScore(score - 1)
         };
       }} />
-      <input type="submit" value={`${QA[1].c}`} onClick={(e) => {
+      <input type="submit" value={correct / 2 - 1} onClick={(e) => {
         e.preventDefault();
         // how to acces value of input
         if (correct == QA[1].c) {
-          setScore(score = 14);
+          setScore(score + 10);
         } else if (correct != QA[1].c) {
           setScore(score - 1)
         };
@@ -131,3 +131,4 @@ function App() {
 }
 
 export default App;
+
