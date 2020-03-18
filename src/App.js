@@ -74,11 +74,24 @@ function App() {
   var answerB;
   var answerC;
   var arr = [answerA, answerB, answerC];
-  var idx = Math.floor(Math.random() * Math.floor(3));
-  console.log('idx: ' + idx);
-  arr[idx] = correct;
-  console.log('arr[idx]: ' + arr[idx]);
+  var indexCorrect = Math.floor(Math.random() * Math.floor(3));
+  console.log('indexCorrect: ' + indexCorrect);
+  arr[indexCorrect] = correct;
+  // randomize again
+  var indexSecond = Math.floor(Math.random() * Math.floor(3));
+  // if number is not the same as indexCorrect
+  while (indexSecond !== indexCorrect) {
+    // divide correct by 2 and store in new index
+    arr[indexSecond] = (correct * 2);
+  }
+  // if number is not the same as indexCorrect or secondIndex
+  // multiply correct by 2 and store in new index
+
+
+  console.log('arr: ' + arr);
+  console.log('arr[indexCorrect]: ' + arr[indexCorrect]);
   console.log('correct: ' + correct);
+  console.log('arr[indexSecond]: ' + arr[indexSecond]);
 
 
   // array of objects
