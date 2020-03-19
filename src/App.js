@@ -6,6 +6,12 @@ function App() {
   const [question, newQuestion] = useState('Click Any Button!');
   const [answer, newAnswer] = useState();
   var correct;
+  // var choices = ['A', 'B', 'C']
+  var choices = {
+    answerA: null,
+    answerB: null,
+    answerC: null
+  }
 
   const QA = [
     {
@@ -35,31 +41,58 @@ function App() {
 
   // const ans = first.valueOf() + operator.valueOf() + second.valueOf();
   // console.log(ans);
+  switch (operator) {
+    case '+':
+      first = parseInt(first);
+      second = parseInt(second);
+      correct = first + second;
+      console.log("correct: " + correct);
+      break;
+    case '-':
+      first = parseInt(first);
+      second = parseInt(second);
+      correct = first - second;
+      console.log("correct: " + correct);
+      break;
+    case '*':
+      first = parseInt(first);
+      second = parseInt(second);
+      correct = first * second;
+      console.log("correct: " + correct);
+      break;
+    case '/':
+      first = parseInt(first);
+      second = parseInt(second);
+      correct = first / second;
+      console.log("correct: " + correct);
+      break;
+  }
 
-  if (operator == '+') {
-    first = parseInt(first);
-    second = parseInt(second);
-    correct = first + second;
-    console.log("correct: " + correct);
-  }
-  else if (operator == '-') {
-    first = parseInt(first);
-    second = parseInt(second);
-    correct = first - second;
-    console.log("correct: " + correct);
-  }
-  else if (operator == '*') {
-    first = parseInt(first);
-    second = parseInt(second);
-    correct = first * second;
-    console.log("correct: " + correct);
-  }
-  else if (operator == '/') {
-    first = parseInt(first);
-    second = parseInt(second);
-    correct = first / second;
-    console.log("correct: " + correct);
-  }
+
+  // if (operator == '+') {
+  // first = parseInt(first);
+  // second = parseInt(second);
+  // correct = first + second;
+  // console.log("correct: " + correct);
+  // }
+  // else if (operator == '-') {
+  //   first = parseInt(first);
+  //   second = parseInt(second);
+  //   correct = first - second;
+  //   console.log("correct: " + correct);
+  // }
+  // else if (operator == '*') {
+  //   first = parseInt(first);
+  //   second = parseInt(second);
+  //   correct = first * second;
+  //   console.log("correct: " + correct);
+  // }
+  // else if (operator == '/') {
+  //   first = parseInt(first);
+  //   second = parseInt(second);
+  //   correct = first / second;
+  //   console.log("correct: " + correct);
+  // }
 
 
   // how to remove preset answer choices
