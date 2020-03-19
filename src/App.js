@@ -29,8 +29,7 @@ function App() {
   // OTHER POSSIBLE DATA TYPES:
   // ARRAY FILLED WITH 'A'..., STORE NUMBER, SWITCH (STR) 
   // ARRAY OF ARRAYS, GRAB ARRAY THAT CONTAINS 'A', AND STICK CHOICE IN, GRAB LENGTH-1 AS ANSWER
-
-
+  // https://repl.it/@DevG94/PastelDiligentPrinter
 
   const QA = [
     {
