@@ -8,10 +8,29 @@ function App() {
   var correct;
   // var choices = ['A', 'B', 'C']
   var choices = {
-    answerA: null,
-    answerB: null,
-    answerC: null
+    choiceA: null,
+    choiceB: null,
+    choiceC: null
   }
+  var operators = [0, 1, 2, 3]; // +,-,*,/
+
+
+  // randomly generate numbers and choose operator
+  // no more preset questions
+  // no more regex for parsing for integers
+  // no more scanning and storing operators
+  // values of numbers have to be different
+
+  // Unable to change value of object with index
+  var idx = Math.floor(Math.random() * Math.floor(3));
+  console.log('indexCorrect: ' + indexCorrect);
+  // insert correct answer to index of structure
+  choices[idx] = correct;
+  // OTHER POSSIBLE DATA TYPES:
+  // ARRAY FILLED WITH 'A'..., STORE NUMBER, SWITCH (STR) 
+  // ARRAY OF ARRAYS, GRAB ARRAY THAT CONTAINS 'A', AND STICK CHOICE IN, GRAB LENGTH-1 AS ANSWER
+
+
 
   const QA = [
     {
@@ -103,12 +122,15 @@ function App() {
   // randomize which has correct answer
   // choose random number between 0 and 2
   // store correct in selected idx
+  /*
   var answerA;
   var answerB;
   var answerC;
   var arr = [answerA, answerB, answerC];
+  // randomly generate index to store correct answer
   var indexCorrect = Math.floor(Math.random() * Math.floor(3));
   console.log('indexCorrect: ' + indexCorrect);
+  // insert correct answer to index of structure
   arr[indexCorrect] = correct;
   // randomize again
   var indexSecond = Math.floor(Math.random() * Math.floor(3));
@@ -125,7 +147,7 @@ function App() {
   console.log('arr[indexCorrect]: ' + arr[indexCorrect]);
   console.log('correct: ' + correct);
   console.log('arr[indexSecond]: ' + arr[indexSecond]);
-
+*/
 
   // array of objects
   // objects has keys for Q, 3 As, correct A
@@ -135,6 +157,20 @@ function App() {
 
   // state => score
 
+
+  // onClick = {(e) => {
+  //   e.preventDefault();
+  //   // how to acces value of input
+  //   switch (correct) {
+  //     // case would be whatever button is clicked
+  //     case choice[e]:
+  //       // if correct add 10 points
+  //       setScore(score + 10);
+  //     // if clicked button is not correct answer
+  //     case !choice[e]:
+  //       // incorrect answer gets -1 point
+  //       setScore(score - 1)
+  //   }
 
 
   return (
