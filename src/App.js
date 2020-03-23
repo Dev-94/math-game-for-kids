@@ -3,55 +3,50 @@ import './App.css';
 
 function App() {
   console.log('START');
-  var [score, setScore] = useState(0);
-  let [question, newQuestion] = useState('Click Any Button!');
-  const [choices, newChoices] = useState();
+  let [score, setScore] = useState(0);
+  let setOptions;
+  let question;
   const operators = [0, 1, 2, 3]; // +,-,*,/
-  var correct;
-  var optionA = 'A';
-  var optionB = 'B';
-  var optionC = 'C';
-  var options = [optionA, optionB, optionC];
+  let correct;
   let int1;
   let int2;
   let operator;
   let operatorIdx;
   let incorrectInt;
   let incorrectOperator;
-  let incorrectEquation;
-  let incorrectAnswer;
-  let optionIdx;
-  let randomOption;
+  let incorrectOne;
+  let incorrectTwo;
+  const randomize = (max, min) => Math.floor(Math.random() * Math.ceil(max) + min);
   const checkAnswer = (event) => {
     event.preventDefault();
-    if (correct) {
+    if (event.target.value == correct) {
       setScore(score + 10);
       console.log('point total: ' + score);
       console.log('END');
-    } else if (!correct) {
-      setScore(score - 1)
+    } else if (event.target.value != correct) {
+      setScore(score - 1);
       console.log('WRONG ANSWER: ' + correct);
       console.log('END');
     }
   };
+  /*
+  // create winning logic
+  // maybe timer for 5 minute
+  // maybe first to a number of points
+  // counts how many questions are posed to get there
+  */
 
 
 
-
-  // randomly generate numbers and choose operator
-  // no more preset questions
-  // no more regex for parsing for integers
-  // no more scanning and storing operators
-  // values of numbers have to be different
   // https://repl.it/@DevG94/PastelDiligentPrinter
 
 
   // generate random int1
-  int1 = Math.floor(Math.random() * Math.floor(20));
+  int1 = randomize(20, 1);
   // generate random int1
-  int2 = Math.floor(Math.random() * Math.floor(20));
+  int2 = randomize(12, 1);
   // generate random operator
-  operatorIdx = Math.floor(Math.random() * Math.floor(3));
+  operatorIdx = randomize(3, 0);
   operator = operators[operatorIdx];
   // read random operator
   switch (operator) {
@@ -89,124 +84,104 @@ function App() {
       break;
   }
 
-  // STORE CORRECT OPTION IN OPTION A
 
-  optionA = correct;
 
-  // create incorrect answer
-  // find random number between 1 and 3
-  // randomize operators
-  // manipulate correct with randomize operator and random number
 
-  // CREATE RANDOM NUMBER AND STORE IT IN OPTION B
+  // Creates incorrect answers
 
-  incorrectInt = Math.floor(Math.random() * Math.ceil(5));
+  incorrectInt = randomize(5, 1);
   console.log('incorrectInt: ' + incorrectInt);
-  incorrectOperator = Math.floor(Math.random() * Math.floor(3));
+  incorrectOperator = randomize(3, 0);
   incorrectOperator = operators[incorrectOperator];
 
   switch (incorrectOperator) {
     case 0:
-      incorrectAnswer = correct + incorrectInt;
+      incorrectOne = correct + incorrectInt;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 1:
-      incorrectAnswer = correct - incorrectInt;
+      incorrectOne = correct - incorrectInt;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 2:
       if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectAnswer = correct + 6;
+        incorrectOne = correct + 6;
         console.log("INCORRECT MULTIPLICATION");
       }
       else {
-        incorrectAnswer = correct * incorrectInt;
+        incorrectOne = correct * incorrectInt;
         console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
       }
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 3:
       if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectAnswer = correct - 6;
+        incorrectOne = correct - 6;
         console.log("INCORRECT DIVISION");
       } else {
-        incorrectAnswer = correct / incorrectInt;
+        incorrectOne = correct / incorrectInt;
         console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       }
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectOne: ' + incorrectOne);
       break;
   };
 
-  // stores answer choices in to buttons
-  optionB = incorrectAnswer;
 
-
-
-  // CREATE RANDOM NUMBER AND STORE IT IN OPTION C
-  incorrectInt = Math.floor(Math.random() * Math.ceil(5));
+  // Creates incorrect answers
+  incorrectInt = randomize(5, 1);
   console.log('incorrectInt: ' + incorrectInt);
-  incorrectOperator = Math.floor(Math.random() * Math.floor(3));
+  incorrectOperator = randomize(3, 0);
   incorrectOperator = operators[incorrectOperator];
 
   switch (incorrectOperator) {
     case 0:
-      incorrectAnswer = correct + incorrectInt;
+      incorrectTwo = correct + incorrectInt;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 1:
-      incorrectAnswer = correct - incorrectInt;
+      incorrectTwo = correct - incorrectInt;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 2:
-      if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectAnswer = correct + 6;
-        console.log("INCORRECT MULTIPLICATION");
-      }
-      else {
-        incorrectAnswer = correct * incorrectInt;
-        console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
-      }
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
+      //   incorrectTwo = correct + 6;
+      //   console.log("INCORRECT MULTIPLICATION");
+      // }
+      // else {
+      incorrectTwo = correct * incorrectInt;
+      console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
+      // }
+      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 3:
-      if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectAnswer = correct - 6;
-        console.log("INCORRECT DIVISION");
-      } else {
-        incorrectAnswer = correct / incorrectInt;
-        console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
-      }
-      console.log('incorrectAnswer: ' + incorrectAnswer);
+      // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
+      //   incorrectTwo = correct - 6;
+      //   console.log("INCORRECT DIVISION");
+      // } else {
+      incorrectTwo = correct / incorrectInt;
+      console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
+      // }
+      console.log('incorrectTwo: ' + incorrectTwo);
       break;
   };
 
-  optionC = incorrectAnswer;
+  if (incorrectOne == correct || incorrectOne == incorrectTwo) {
+    incorrectOne = correct + incorrectInt + 1;
 
-
-
-
-  // RANDOMLY STORE ANSWER CHOICES IN OPTIONS????
-  // RANDOM INDEX, STORE FIRST CORRECT
-  // SWTICH, CASE OPTIONA !== CORRECT, RUN THIS FUNCTION THAT RANDOMIZES ANSWER CHOICES
-  // CASE OPTIONB !== CORRECT, RUN THIS FUNCTION THAT RANDOMIZES ANSWER CHOICES
-  // CASE OPTIONC !== CORRECT, RUN THIS FUNCTION THAT RANDOMIZES ANSWER CHOICES
-  const randomizeOptions = () => {
-    optionIdx = Math.floor(Math.random() * Math.floor(2));
-    randomOption = options[optionIdx];
-    console.log(randomOption);
-    randomOption = incorrectAnswer;
-    if (optionA == String || optionA !== correct) {
-      optionA = randomOption;
-      console.log("optionA: " + optionA);
-    }
-
+  }
+  if (incorrectTwo == incorrectOne || incorrectTwo == correct) {
+    incorrectTwo = correct + incorrectInt + 1;
   }
 
 
+
+
+  // stores answer choices in to buttons in a random (sorted values) order
+  setOptions = [correct, incorrectOne, incorrectTwo].sort();
 
 
   return (
@@ -215,9 +190,9 @@ function App() {
       <div>Score: {score}</div>
       <div>Question: {question} </div>
 
-      <input type="submit" value={optionA} onClick={checkAnswer} />
-      <input type="submit" value={optionB} onClick={checkAnswer} />
-      <input type="submit" value={optionC} onClick={checkAnswer} />
+      <input type="submit" value={setOptions[0]} onClick={checkAnswer} />
+      <input type="submit" value={setOptions[1]} onClick={checkAnswer} />
+      <input type="submit" value={setOptions[2]} onClick={checkAnswer} />
     </div>
   );
 }
