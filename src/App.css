@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -35,4 +36,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.score {
+  /* margin: 5%; */
+  font-size: large;
+
+
+}
+
+.question {
+  margin: 10%;
+  font-size: 1000%;
+
+}
+
+.button {
+background-color: tomato;
+color: white;
+font-weight: 900;
+margin: 15vh 5vh;
+font-size: x-large;
+border-radius: 100%;
+border-color: black;
+padding: 1vh;
+
+
 }

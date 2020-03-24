@@ -38,7 +38,7 @@ function App() {
 
 
 
-  // https://repl.it/@DevG94/PastelDiligentPrinter
+  // https://repl.it/@DevG94/Math-Game-for-Kids
 
 
   // generate random int1
@@ -46,10 +46,10 @@ function App() {
   // generate random int1
   int2 = randomize(12, 1);
   // generate random operator
-  operatorIdx = randomize(3, 0);
-  operator = operators[operatorIdx];
+  operatorIdx = randomize(4, 0);
+  // operator = operators[operatorIdx];
   // read random operator
-  switch (operator) {
+  switch (operatorIdx) {
     case 0:
       int1 = parseInt(int1);
       int2 = parseInt(int2);
@@ -77,7 +77,9 @@ function App() {
     case 3:
       int1 = parseInt(int1);
       int2 = parseInt(int2);
+      // curtail correct answer to two digits after the decimal
       correct = int1 / int2;
+      correct = Math.round((correct + Number.EPSILON) * 100) / 100;
       question = `${int1} / ${int2}`;
       console.log(question);
       console.log("correct answer: " + correct);
@@ -91,8 +93,8 @@ function App() {
 
   incorrectInt = randomize(5, 1);
   console.log('incorrectInt: ' + incorrectInt);
-  incorrectOperator = randomize(3, 0);
-  incorrectOperator = operators[incorrectOperator];
+  incorrectOperator = randomize(4, 0);
+  // incorrectOperator = operators[incorrectOperator];
 
   switch (incorrectOperator) {
     case 0:
@@ -106,24 +108,29 @@ function App() {
       console.log('incorrectOne: ' + incorrectOne);
       break;
     case 2:
-      if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectOne = correct + 6;
-        console.log("INCORRECT MULTIPLICATION");
-      }
-      else {
-        incorrectOne = correct * incorrectInt;
-        console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
-      }
+      // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
+      //   incorrectOne = correct + 6;
+      //   console.log("INCORRECT MULTIPLICATION");
+      // }
+      // else {
+      incorrectOne = correct * incorrectInt;
+      console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
+      // }
       console.log('incorrectOne: ' + incorrectOne);
       break;
     case 3:
-      if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
-        incorrectOne = correct - 6;
-        console.log("INCORRECT DIVISION");
-      } else {
-        incorrectOne = correct / incorrectInt;
-        console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
-      }
+      // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
+      //   incorrectOne = correct - 6;
+      //   console.log("INCORRECT DIVISION");
+      // } else {
+
+      // curtail correct answer to two digits after the decimal
+      incorrectOne = correct / incorrectInt;
+      incorrectOne = Math.round((incorrectOne + Number.EPSILON) * 100) / 100;
+
+
+      console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
+      // }
       console.log('incorrectOne: ' + incorrectOne);
       break;
   };
@@ -163,6 +170,8 @@ function App() {
       //   console.log("INCORRECT DIVISION");
       // } else {
       incorrectTwo = correct / incorrectInt;
+      incorrectTwo = Math.round((incorrectTwo + Number.EPSILON) * 100) / 100;
+
       console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       // }
       console.log('incorrectTwo: ' + incorrectTwo);
@@ -187,12 +196,12 @@ function App() {
   return (
     <div className="App">
 
-      <div>Score: {score}</div>
-      <div>Question: {question} </div>
+      <div className="score">{score} points</div>
+      <div className="question"> {question} </div>
 
-      <input type="submit" value={setOptions[0]} onClick={checkAnswer} />
-      <input type="submit" value={setOptions[1]} onClick={checkAnswer} />
-      <input type="submit" value={setOptions[2]} onClick={checkAnswer} />
+      <input className="button" type="submit" value={setOptions[0]} onClick={checkAnswer} />
+      <input className="button" type="submit" value={setOptions[1]} onClick={checkAnswer} />
+      <input className="button" type="submit" value={setOptions[2]} onClick={checkAnswer} />
     </div>
   );
 }
