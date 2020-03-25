@@ -56,7 +56,6 @@ function App() {
       correct = int1 + int2;
       question = `${int1} + ${int2}`;
       console.log(question);
-      console.log("correct answer: " + correct);
       break;
     case 1:
       int1 = parseInt(int1);
@@ -64,7 +63,6 @@ function App() {
       correct = int1 - int2;
       question = `${int1} - ${int2}`;
       console.log(question);
-      console.log("correct answer: " + correct);
       break;
     case 2:
       int1 = parseInt(int1);
@@ -72,7 +70,6 @@ function App() {
       correct = int1 * int2;
       question = `${int1} * ${int2}`;
       console.log(question);
-      console.log("correct answer: " + correct);
       break;
     case 3:
       int1 = parseInt(int1);
@@ -82,9 +79,9 @@ function App() {
       correct = Math.round((correct + Number.EPSILON) * 100) / 100;
       question = `${int1} / ${int2}`;
       console.log(question);
-      console.log("correct answer: " + correct);
       break;
   }
+  console.log("correct answer: " + correct);
 
 
 
@@ -100,12 +97,10 @@ function App() {
     case 0:
       incorrectOne = correct + incorrectInt;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
-      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 1:
       incorrectOne = correct - incorrectInt;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
-      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 2:
       // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
@@ -116,7 +111,6 @@ function App() {
       incorrectOne = correct * incorrectInt;
       console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
       // }
-      console.log('incorrectOne: ' + incorrectOne);
       break;
     case 3:
       // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
@@ -131,9 +125,9 @@ function App() {
 
       console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       // }
-      console.log('incorrectOne: ' + incorrectOne);
       break;
   };
+  console.log('incorrectOne: ' + incorrectOne);
 
 
   // Creates incorrect answers
@@ -146,12 +140,10 @@ function App() {
     case 0:
       incorrectTwo = correct + incorrectInt;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
-      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 1:
       incorrectTwo = correct - incorrectInt;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
-      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 2:
       // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
@@ -162,7 +154,6 @@ function App() {
       incorrectTwo = correct * incorrectInt;
       console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
       // }
-      console.log('incorrectTwo: ' + incorrectTwo);
       break;
     case 3:
       // if (incorrectInt === 1 || incorrectInt === 0 || correct === 1 || correct === 0) {
@@ -174,9 +165,9 @@ function App() {
 
       console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       // }
-      console.log('incorrectTwo: ' + incorrectTwo);
       break;
   };
+  console.log('incorrectTwo: ' + incorrectTwo);
 
   if (incorrectOne == correct || incorrectOne == incorrectTwo) {
     incorrectOne = correct + incorrectInt + 1;
@@ -197,6 +188,7 @@ function App() {
     <div className="App">
 
       <div className="score">{score} points</div>
+      <hr />
       <div className="question"> {question} </div>
 
       <input className="button" type="submit" value={setOptions[0]} onClick={checkAnswer} />

@@ -38,29 +38,48 @@
   }
 }
 
+hr {
+  width: 50%;
+}
 
 .score {
-  /* margin: 5%; */
-  font-size: large;
-
-
+  font-size: x-large;
+  border-color: 100vh black;
+  margin-bottom: 5vh;
 }
 
 .question {
   margin: 10%;
   font-size: 1000%;
+  text-emphasis-color: red 100vh;
+
 
 }
 
 .button {
-background-color: tomato;
-color: white;
-font-weight: 900;
-margin: 15vh 5vh;
-font-size: x-large;
-border-radius: 100%;
-border-color: black;
-padding: 1vh;
-
-
+  background-color:  rgb(255, 235, 122);
+  color:rgb(144, 203, 238);
+  border-color: rgb(212, 179, 255);
+/* background-color:  rgb(212, 179, 255);
+color: rgb(100, 100, 168);
+border-color: rgb(252, 244, 132); */
+  font-weight: 300;
+  margin: 15vh 5vh;
+  font-size: x-large;
+  border-radius: 100%;
+  padding: 1vh;
+  width: 10vh;
+  height: 10vh;
 }
+
+.button:hover {
+  background-color:  rgb(212, 179, 255);
+  color: rgb(100, 100, 168);
+  border-color: rgb(252, 244, 132);
+  /* background-color:  rgb(255, 235, 122);
+  color:rgb(144, 203, 238);
+  border-color: rgb(212, 179, 255); */
+  font-weight: 900;
+}
+
+
