@@ -96,10 +96,12 @@ function App() {
   switch (incorrectOperator) {
     case 0:
       incorrectOne = correct + incorrectInt;
+      incorrectOne = Math.round((incorrectOne + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
       break;
     case 1:
       incorrectOne = correct - incorrectInt;
+      incorrectOne = Math.round((incorrectOne + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
       break;
     case 2:
@@ -109,6 +111,7 @@ function App() {
       // }
       // else {
       incorrectOne = correct * incorrectInt;
+      incorrectOne = Math.round((incorrectOne + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
       // }
       break;
@@ -121,8 +124,6 @@ function App() {
       // curtail correct answer to two digits after the decimal
       incorrectOne = correct / incorrectInt;
       incorrectOne = Math.round((incorrectOne + Number.EPSILON) * 100) / 100;
-
-
       console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       // }
       break;
@@ -139,10 +140,12 @@ function App() {
   switch (incorrectOperator) {
     case 0:
       incorrectTwo = correct + incorrectInt;
+      incorrectTwo = Math.round((incorrectTwo + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} + ${incorrectInt}`);
       break;
     case 1:
       incorrectTwo = correct - incorrectInt;
+      incorrectTwo = Math.round((incorrectTwo + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} - ${incorrectInt}`);
       break;
     case 2:
@@ -152,6 +155,7 @@ function App() {
       // }
       // else {
       incorrectTwo = correct * incorrectInt;
+      incorrectTwo = Math.round((incorrectTwo + Number.EPSILON) * 100) / 100;
       console.log('incorrectEquation: ' + `${correct} * ${incorrectInt}`);
       // }
       break;
@@ -162,7 +166,6 @@ function App() {
       // } else {
       incorrectTwo = correct / incorrectInt;
       incorrectTwo = Math.round((incorrectTwo + Number.EPSILON) * 100) / 100;
-
       console.log('incorrectEquation: ' + `${correct} / ${incorrectInt}`);
       // }
       break;
